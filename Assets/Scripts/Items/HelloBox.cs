@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controllers;
+using UnityEngine;
 
 namespace Items
 {
@@ -7,6 +8,7 @@ namespace Items
         public void SayHello()
         {
             Debug.Log($"Hello from game object \"{gameObject.name}\"");
+            GameController.Instance.sceneLoadManager.StartStage(2);
         }
     }
 }

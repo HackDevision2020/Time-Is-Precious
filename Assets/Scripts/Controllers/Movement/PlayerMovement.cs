@@ -42,6 +42,17 @@ namespace Controllers.Movement
 
         private void Update()
         {
+            if (Time.timeScale == 0.0f) // equality is ok here bc this 0.0f is a value that is directly set
+            {
+                // do not receive any input when the game is paused
+                return;
+            }
+
+            if (Input.GetButtonDown("Pause"))
+            {
+                GameController.Instance.PauseGame(true);
+            }
+
             sideMovementInput = Input.GetAxisRaw("Horizontal");
 
             if (Input.GetButtonDown("Jump"))
@@ -49,7 +60,7 @@ namespace Controllers.Movement
                 jumpInput = true;
             }
 
-            if (Input.GetButtonDown("Fire1"))
+            if (!isAttacking && Input.GetButtonDown("Fire1"))
             {
                 characterMovement.PausePhysics();
                 isAttacking = true;
