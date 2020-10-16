@@ -854,6 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d626fc17e6674afeb601f3a51dde2412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingDelay: 0.5
   loadingCanvas: {fileID: 1762882371}
   mainMenuCanvas: {fileID: 1785164614}
 --- !u!1 &800879685

@@ -22,6 +22,7 @@ namespace Controllers.Movement
         private static readonly int animParamUpDownSpeed = Animator.StringToHash("UpDownSpeed");
         private static readonly int animParamOnGround = Animator.StringToHash("OnGround");
         private static readonly int animParamAttack = Animator.StringToHash("Attack");
+        private static readonly int animParamHit = Animator.StringToHash("Hit");
 
         private bool isFacingLeft;
         private bool isAttacking;
@@ -121,6 +122,29 @@ namespace Controllers.Movement
         {
             characterMovement.ResumePhysics();
             isAttacking = false;
+        }
+
+        /// <summary>
+        /// Event receiver to trigger animation
+        /// </summary>
+        /// <param name="current">New value of the health</param>
+        /// <param name="previous">Previous value of the health</param>
+        public void OnHealthChanged(float current, float previous)
+        {
+            if (current < previous)
+            {
+                TakeHit();
+            }
+        }
+
+        private void TakeHit()
+        {
+            animator.SetTrigger(animParamHit);
+        }
+
+        public void OnDeath()
+        {
+            animator.SetTrigger("Dead");
         }
     }
 }

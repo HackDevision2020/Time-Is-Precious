@@ -14,9 +14,11 @@ namespace Utils
 
         public Trigger2DEvent onTriggerEnter;
         public Trigger2DEvent onTriggerExit;
+        public Trigger2DEvent onTriggerStay;
 
         public Collision2DEvent onCollisionEnter;
         public Collision2DEvent onCollisionExit;
+        public Collision2DEvent onCollisionStay;
 
         private new Collider2D collider;
 
@@ -34,6 +36,11 @@ namespace Utils
                 onTriggerExit = new Trigger2DEvent();
             }
 
+            if (onTriggerStay == null)
+            {
+                onTriggerStay = new Trigger2DEvent();
+            }
+
             if (onCollisionEnter == null)
             {
                 onCollisionEnter = new Collision2DEvent();
@@ -42,6 +49,11 @@ namespace Utils
             if (onCollisionExit == null)
             {
                 onCollisionExit = new Collision2DEvent();
+            }
+
+            if (onCollisionStay == null)
+            {
+                onCollisionStay = new Collision2DEvent();
             }
         }
 
@@ -55,6 +67,11 @@ namespace Utils
             onTriggerExit.Invoke(collider, other);
         }
 
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            onTriggerStay.Invoke(collider, other);
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             onCollisionEnter.Invoke(collider, other);
@@ -63,6 +80,11 @@ namespace Utils
         private void OnCollisionExit2D(Collision2D other)
         {
             onCollisionExit.Invoke(collider, other);
+        }
+
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            onCollisionStay.Invoke(collider, other);
         }
     }
 }
