@@ -7,7 +7,7 @@ namespace Items
     {
         public bool canBeInteracted = true;
 
-        public SpriteRenderer indicatorSprite;
+        public GameObject indicator;
 
         public UnityEvent onInteracted;
 
@@ -26,9 +26,7 @@ namespace Items
 
         public void ShowInteractable(bool show)
         {
-            Color newColor = indicatorSprite.color;
-            newColor.a = show && canBeInteracted ? 1.0f : 0.0f;
-            indicatorSprite.color = newColor;
+            indicator.SetActive(show && canBeInteracted);
         }
     }
 }
