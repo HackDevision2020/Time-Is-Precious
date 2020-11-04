@@ -18,6 +18,10 @@ namespace Combat
         public HealthChangeEvent onHealthChange;
         public UnityEvent onDeath;
 
+        public bool IsDead => isDead;
+
+        private bool isDead;
+
         private void Awake()
         {
             if (onMaxHealthChange == null)
@@ -59,6 +63,7 @@ namespace Combat
 
             if (currentHealth == 0)
             {
+                isDead = true;
                 onDeath.Invoke();
             }
         }

@@ -23,7 +23,7 @@ namespace Traps
             }
 
             CombatUnit combatUnit = other.gameObject.GetComponent<CombatUnit>();
-            if (combatUnit != null)
+            if (combatUnit != null && !combatUnit.IsDead)
             {
                 combatUnit.TakeDamage(attackDamage);
                 other.rigidbody.AddForce(other.GetContact(0).normal.normalized * pushForce * -1.0f);
@@ -43,7 +43,7 @@ namespace Traps
             }
 
             CombatUnit combatUnit = other.GetComponent<CombatUnit>();
-            if (combatUnit != null)
+            if (combatUnit != null && !combatUnit.IsDead)
             {
                 combatUnit.TakeDamage(attackDamage);
                 ContactPoint2D[] contactPoints = new ContactPoint2D[1];
