@@ -23,6 +23,7 @@ namespace Controllers.Movement
         private static readonly int animParamOnGround = Animator.StringToHash("OnGround");
         private static readonly int animParamAttack = Animator.StringToHash("Attack");
         private static readonly int animParamHit = Animator.StringToHash("Hit");
+        private static readonly int animParamDead = Animator.StringToHash("Dead");
 
         private bool isFacingLeft;
         private bool isAttacking;
@@ -129,7 +130,7 @@ namespace Controllers.Movement
         /// </summary>
         /// <param name="current">New value of the health</param>
         /// <param name="previous">Previous value of the health</param>
-        public void OnHealthChanged(float current, float previous)
+        public void OnHealthChanged(int current, int previous)
         {
             if (current < previous)
             {
@@ -144,7 +145,7 @@ namespace Controllers.Movement
 
         public void OnDeath()
         {
-            animator.SetTrigger("Dead");
+            animator.SetTrigger(animParamDead);
         }
     }
 }
