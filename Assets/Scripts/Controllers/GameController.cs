@@ -10,6 +10,8 @@ namespace Controllers
 
         public SceneLoadManager sceneLoadManager;
 
+        public GameStateTracker gameStateTracker;
+
         public GameObject pauseMenuCanvas;
 
         private void Awake()

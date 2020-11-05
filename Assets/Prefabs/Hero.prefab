@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 8068602841427100241}
   - component: {fileID: 8068602841427100240}
   - component: {fileID: 3757116901232451790}
+  - component: {fileID: 2577493147499465960}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Untagged
@@ -108,7 +109,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 606223281
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: fc46633b0eb321e46838bcb9ff2d4150, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -253,17 +254,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899cb290ea1e95648a8515a81a0b6e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 3
+  currentHealth: 3
   onMaxHealthChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2577493147499465960}
+        m_TargetAssemblyTypeName: Player.PlayerDamageHandler, Assembly-CSharp
+        m_MethodName: OnPlayerMaxHealthChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHealthChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8068602841427100241}
         m_TargetAssemblyTypeName: Controllers.Movement.PlayerMovement, Assembly-CSharp
         m_MethodName: OnHealthChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2577493147499465960}
+        m_TargetAssemblyTypeName: Player.PlayerDamageHandler, Assembly-CSharp
+        m_MethodName: OnPlayerHealthChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -298,6 +323,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 361620a26ff7a984ea4daacb9fcf0e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2577493147499465960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8068602841427100248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67131b227cfb41b58e12f5c0f5ff1f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8068602841434313953

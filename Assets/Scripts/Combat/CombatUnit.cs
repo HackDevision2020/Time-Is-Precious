@@ -7,16 +7,20 @@ namespace Combat
     public class CombatUnit : MonoBehaviour
     {
         [System.Serializable]
-        public class HealthChangeEvent : UnityEvent<float, float> {}
+        public class HealthChangeEvent : UnityEvent<int, int> {}
 
-        public float maxHealth = 100.0f;
+        public int maxHealth = 3;
 
-        public float currentHealth = 100.0f;
+        public int currentHealth = 3;
 
         [Header("Events")]
         public HealthChangeEvent onMaxHealthChange;
         public HealthChangeEvent onHealthChange;
         public UnityEvent onDeath;
+
+        public bool IsDead => isDead;
+
+        private bool isDead;
 
         private void Awake()
         {
@@ -42,23 +46,24 @@ namespace Combat
             onHealthChange.Invoke(currentHealth, currentHealth);
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(int damage)
         {
-            float previousHealth = currentHealth;
+            int previousHealth = currentHealth;
             currentHealth -= damage;
 
-            if (currentHealth <= 0.0f)
+            if (currentHealth <= 0)
             {
-                currentHealth = 0.0f;
+                currentHealth = 0;
             }
 
-            if (Mathf.Abs(currentHealth - previousHealth) > float.Epsilon)
+            if (Mathf.Abs(currentHealth - previousHealth) > 0)
             {
                 onHealthChange.Invoke(currentHealth, previousHealth);
             }
 
-            if (currentHealth == 0.0f)
+            if (currentHealth == 0)
             {
+                isDead = true;
                 onDeath.Invoke();
             }
         }

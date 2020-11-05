@@ -23,9 +23,11 @@ namespace Controllers.Movement
         private static readonly int animParamOnGround = Animator.StringToHash("OnGround");
         private static readonly int animParamAttack = Animator.StringToHash("Attack");
         private static readonly int animParamHit = Animator.StringToHash("Hit");
+        private static readonly int animParamDead = Animator.StringToHash("Dead");
 
         private bool isFacingLeft;
         private bool isAttacking;
+        private bool isDead;
 
         private void Awake()
         {
@@ -43,6 +45,13 @@ namespace Controllers.Movement
 
         private void Update()
         {
+            if (isDead)
+            {
+                // do not receive any input when the player character is dead
+                sideMovementInput = 0.0f;
+                return;
+            }
+
             if (Time.timeScale == 0.0f) // equality is ok here bc this 0.0f is a value that is directly set
             {
                 // do not receive any input when the game is paused
@@ -129,7 +138,7 @@ namespace Controllers.Movement
         /// </summary>
         /// <param name="current">New value of the health</param>
         /// <param name="previous">Previous value of the health</param>
-        public void OnHealthChanged(float current, float previous)
+        public void OnHealthChanged(int current, int previous)
         {
             if (current < previous)
             {
@@ -144,7 +153,8 @@ namespace Controllers.Movement
 
         public void OnDeath()
         {
-            animator.SetTrigger("Dead");
+            animator.SetTrigger(animParamDead);
+            isDead = true;
         }
     }
 }
