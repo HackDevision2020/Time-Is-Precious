@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    [SerializeField] private string levelToLoad;
+    [SerializeField] private GameObject toBeActivated;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,7 @@ public class LevelExit : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            //SceneManager.LoadScene(levelToLoad);
-            StartCoroutine(LevelManager.instance.LevelEnd());
+            toBeActivated.SetActive(true);
 
         }
     }
