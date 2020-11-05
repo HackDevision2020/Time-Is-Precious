@@ -55,13 +55,13 @@ namespace Utils
             if (tileX && Mathf.Abs(positionDiff.x) >= textureUnitSizeX)
             {
                 float offsetPosition = positionDiff.x % textureUnitSizeX;
-                currentPosition.x += currentCameraPosition.x + offsetPosition;
+                currentPosition.x = currentCameraPosition.x + offsetPosition;
             }
 
             if (tileY && Mathf.Abs(positionDiff.y) >= textureUnitSizeY)
             {
                 float offsetPosition = positionDiff.y % textureUnitSizeY;
-                currentPosition.y += currentCameraPosition.y + offsetPosition;
+                currentPosition.y = currentCameraPosition.y + offsetPosition;
             }
 
             transform.position = currentPosition;
