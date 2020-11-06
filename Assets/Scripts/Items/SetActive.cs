@@ -4,7 +4,7 @@ namespace Items
 {
     public class SetActive : MonoBehaviour
     {
-        public GameObject target;
+        public GameObject[] target;
 
         public SetActiveMode mode;
 
@@ -13,15 +13,24 @@ namespace Items
             switch (mode)
             {
                 case SetActiveMode.Toggle:
-                    target.SetActive(!target.activeSelf);
+                    foreach (GameObject t in target)
+                    {
+                        t.SetActive(!t.activeSelf);
+                    }
                     break;
 
                 case SetActiveMode.Activate:
-                    target.SetActive(true);
+                    foreach (GameObject t in target)
+                    {
+                        t.SetActive(true);
+                    }
                     break;
 
                 case SetActiveMode.Deactivate:
-                    target.SetActive(false);
+                    foreach (GameObject t in target)
+                    {
+                        t.SetActive(false);
+                    }
                     break;
             }
         }
