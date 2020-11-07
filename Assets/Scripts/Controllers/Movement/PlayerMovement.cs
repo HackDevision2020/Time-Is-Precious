@@ -156,5 +156,24 @@ namespace Controllers.Movement
             animator.SetTrigger(animParamDead);
             isDead = true;
         }
+
+        // Platforms logic
+        public void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Platform"))
+            {
+                //Making the player a child
+                this.transform.parent = other.transform;
+            }
+        }
+        public void OnCollisionExit2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Platform"))
+            {
+
+                this.transform.parent = null;
+
+            }
+        }
     }
 }

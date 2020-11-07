@@ -15,6 +15,8 @@ namespace Controllers
 
         public string splashSceneName;
 
+        public int CurrentStage => stageNumber;
+
         private SceneMode sceneMode = SceneMode.MainMenu;
         private int stageNumber = 0;
 

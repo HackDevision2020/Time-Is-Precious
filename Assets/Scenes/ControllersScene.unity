@@ -215,7 +215,7 @@ RectTransform:
   m_Children:
   - {fileID: 1249696857}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 0}
-  updateOnPhysics: 1
+  updateOnPhysics: 0
   followSmoothTime: 0.196
   followMaxSpeed: 10000
   followOffset: {x: 0, y: 2, z: -10}
@@ -1150,7 +1150,7 @@ RectTransform:
   - {fileID: 1198566859}
   - {fileID: 214954338}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
