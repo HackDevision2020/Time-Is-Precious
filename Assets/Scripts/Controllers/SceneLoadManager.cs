@@ -15,6 +15,7 @@ namespace Controllers
 
         public string splashSceneName;
 
+        public SceneMode CurrentMode => sceneMode;
         public int CurrentStage => stageNumber;
 
         private SceneMode sceneMode = SceneMode.MainMenu;
@@ -40,31 +41,40 @@ namespace Controllers
 #if UNITY_EDITOR
             if (SceneManager.sceneCount == 2)
             {
-                // mainMenuCanvas.SetActive(false);
+                mainMenuCanvas.SetActive(false);
                 loadingCanvas.SetActive(false);
 
-                foreach (int stageNum in new[] { 1, 2, 3 })
+                if (CheckIfSceneIsLoaded("SplashScreen"))
                 {
-                    if (CheckIfSceneIsLoaded($"Stage{stageNum}"))
+                    sceneMode = SceneMode.MainScene;
+                }
+                else
+                {
+                    foreach (int stageNum in new[] { 1, 2, 3 })
                     {
-                        sceneMode = SceneMode.Stage;
-                        stageNumber = stageNum;
-                        break;
+                        if (CheckIfSceneIsLoaded($"Stage{stageNum}"))
+                        {
+                            sceneMode = SceneMode.Stage;
+                            stageNumber = stageNum;
+                            break;
+                        }
                     }
                 }
             }
 #endif
 
-            if (sceneMode == SceneMode.MainMenu && SceneManager.sceneCount == 1)
-            {
-                StartCoroutine(LoadSplashScreen());
-                // mainMenuCanvas.SetActive(true);
-            }
+            // This is a fail-safe thing in case someone disables the main menu
+            mainMenuCanvas.SetActive(true);
         }
 
         public void GoToMenu()
         {
             if (sceneMode == SceneMode.MainMenu)
+            {
+                StartCoroutine(LoadSplashScreen());
+            }
+
+            if (sceneMode == SceneMode.MainScene)
             {
                 return;
             }
@@ -87,7 +97,7 @@ namespace Controllers
             }
             else
             {
-                // mainMenuCanvas.SetActive(false);
+                mainMenuCanvas.SetActive(false);
                 StartCoroutine(LoadStage(stageNum));
             }
         }
@@ -100,7 +110,7 @@ namespace Controllers
 
         private IEnumerator LoadSplashScreen()
         {
-            sceneMode = SceneMode.MainMenu;
+            sceneMode = SceneMode.MainScene;
             stageNumber = 0;
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(splashSceneName, LoadSceneMode.Additive);
@@ -145,7 +155,7 @@ namespace Controllers
 
         private IEnumerator UnloadStage(int stageNum)
         {
-            sceneMode = SceneMode.MainMenu;
+            sceneMode = SceneMode.MainScene;
             stageNumber = 0;
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0));
             AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync($"Stage{stageNum}");
@@ -192,9 +202,21 @@ namespace Controllers
             loadingCanvas.SetActive(false);
         }
 
-        private enum SceneMode
+        public enum SceneMode
         {
+            /// <summary>
+            /// When the user started the game with the main menu canvas active
+            /// </summary>
             MainMenu,
+
+            /// <summary>
+            /// When the main scene is open
+            /// </summary>
+            MainScene,
+
+            /// <summary>
+            /// When a stage is open
+            /// </summary>
             Stage,
         }
     }
