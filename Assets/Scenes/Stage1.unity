@@ -731,11 +731,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.48
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -772,6 +772,14 @@ PrefabInstance:
     - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8068602841427100247, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_SortingLayer
@@ -1515,7 +1523,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7701800070866494904, guid: 49660cd5f5506614eb2400dd45b8a349, type: 3}
       propertyPath: stage
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701800070866494905, guid: 49660cd5f5506614eb2400dd45b8a349, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7701800070866494907, guid: 49660cd5f5506614eb2400dd45b8a349, type: 3}
       propertyPath: m_Name
@@ -1523,15 +1535,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701800070866494910, guid: 49660cd5f5506614eb2400dd45b8a349, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 56.18
+      value: 54.9
       objectReference: {fileID: 0}
     - target: {fileID: 7701800070866494910, guid: 49660cd5f5506614eb2400dd45b8a349, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.63
+      value: 9.7
       objectReference: {fileID: 0}
     - target: {fileID: 7701800070866494910, guid: 49660cd5f5506614eb2400dd45b8a349, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.720764
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7701800070866494910, guid: 49660cd5f5506614eb2400dd45b8a349, type: 3}
       propertyPath: m_LocalRotation.x
@@ -26271,7 +26283,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 600037fb91ab0c94ca5d5bf325ed7306, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.049
   m_Pitch: 1
   Loop: 0
   Mute: 0

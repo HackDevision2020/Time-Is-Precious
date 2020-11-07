@@ -17,5 +17,11 @@ namespace Player
         {
             GameController.Instance.gameStateTracker.healthbar.OnMaxHealthUpdated(newMaxHealth, oldMaxHealth);
         }
+
+        public void OnPlayerDeath()
+        {
+            int currentStage = GameController.Instance.sceneLoadManager.CurrentStage;
+            GameController.Instance.sceneLoadManager.StartStage(currentStage);
+        }
     }
 }
