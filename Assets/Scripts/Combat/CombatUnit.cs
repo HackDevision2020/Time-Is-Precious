@@ -13,6 +13,8 @@ namespace Combat
 
         public int currentHealth = 3;
 
+        public bool isInvincible = false;
+
         [Header("Events")]
         public HealthChangeEvent onMaxHealthChange;
         public HealthChangeEvent onHealthChange;
@@ -46,8 +48,18 @@ namespace Combat
             onHealthChange.Invoke(currentHealth, currentHealth);
         }
 
+        public void SetInvincible(bool shouldBeInvincible)
+        {
+            isInvincible = shouldBeInvincible;
+        }
+
         public void TakeDamage(int damage)
         {
+            if (isInvincible)
+            {
+                return;
+            }
+
             int previousHealth = currentHealth;
             currentHealth -= damage;
 
@@ -65,6 +77,10 @@ namespace Combat
             {
                 isDead = true;
                 onDeath.Invoke();
+            }
+            else if (currentHealth < previousHealth)
+            {
+                isInvincible = true;
             }
         }
     }
