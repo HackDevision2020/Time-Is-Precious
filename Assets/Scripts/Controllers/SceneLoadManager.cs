@@ -61,10 +61,13 @@ namespace Controllers
                     }
                 }
             }
-#endif
+
+#else
 
             // This is a fail-safe thing in case someone disables the main menu
+
             mainMenuCanvas.SetActive(true);
+#endif
         }
 
         public void GoToMenu()
