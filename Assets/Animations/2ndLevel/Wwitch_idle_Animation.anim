@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: witchAnimation
+  m_Name: Wwitch_idle_Animation
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -35,6 +35,8 @@ AnimationClip:
       value: {fileID: 3278449094680734212, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
     - time: 1
       value: {fileID: 3384493420599841878, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
+    - time: 1.1666666
+      value: {fileID: -7385789195546760866, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -62,12 +64,13 @@ AnimationClip:
     - {fileID: -2834552850196481573, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
     - {fileID: 3278449094680734212, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
     - {fileID: 3384493420599841878, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
+    - {fileID: -7385789195546760866, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0166667
+    m_StopTime: 1.1833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
