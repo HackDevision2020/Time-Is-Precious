@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - float
   - fall
+  - Item
   layers:
   - Default
   - TransparentFX

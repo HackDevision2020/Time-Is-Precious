@@ -23048,6 +23048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bee (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7366912450811587538, guid: 283c40b24e4f94a0898df16039262518, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7366912450811587540, guid: 283c40b24e4f94a0898df16039262518, type: 3}
       propertyPath: target
       value: 
@@ -25963,6 +25967,10 @@ PrefabInstance:
     - target: {fileID: 7366912450811587538, guid: 283c40b24e4f94a0898df16039262518, type: 3}
       propertyPath: m_Name
       value: bee (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366912450811587538, guid: 283c40b24e4f94a0898df16039262518, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7366912450811587540, guid: 283c40b24e4f94a0898df16039262518, type: 3}
       propertyPath: target
