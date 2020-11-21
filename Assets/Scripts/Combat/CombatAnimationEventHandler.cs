@@ -7,6 +7,8 @@ namespace Combat
     {
         public UnityEvent onHurtAnimationEnd;
         public UnityEvent onDeathAnimationEnd;
+        public UnityEvent onMeleeAttackColliderActivate;
+        public UnityEvent onMeleeAttackColliderDeactivate;
 
         private void Awake()
         {
@@ -19,6 +21,16 @@ namespace Combat
             {
                 onDeathAnimationEnd = new UnityEvent();
             }
+
+            if (onMeleeAttackColliderActivate == null)
+            {
+                onMeleeAttackColliderActivate = new UnityEvent();
+            }
+
+            if (onMeleeAttackColliderDeactivate == null)
+            {
+                onMeleeAttackColliderDeactivate = new UnityEvent();
+            }
         }
 
         public void DeathAnimationEndHandler()
@@ -29,6 +41,16 @@ namespace Combat
         public void HurtAnimationEndHandler()
         {
             onHurtAnimationEnd.Invoke();
+        }
+
+        public void MeleeAttackColliderActivateHandler()
+        {
+            onMeleeAttackColliderActivate.Invoke();
+        }
+
+        public void MeleeAttackColliderDeactivateHandler()
+        {
+            onMeleeAttackColliderDeactivate.Invoke();
         }
     }
 }

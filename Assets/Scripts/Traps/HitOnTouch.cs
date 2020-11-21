@@ -10,6 +10,9 @@ namespace Traps
 
         public float pushForce = 100.0f;
 
+        [Tooltip("Whether to push on the contact normal or the position difference; only applicable for triggers")]
+        public bool pushOnNormal = true;
+
         /// <summary>
         /// Use this method for Collision event handlers.
         /// </summary>
@@ -46,10 +49,19 @@ namespace Traps
             if (combatUnit != null && !combatUnit.IsDead)
             {
                 combatUnit.TakeDamage(attackDamage);
-                ContactPoint2D[] contactPoints = new ContactPoint2D[1];
-                if (other.GetContacts(contactPoints) > 0)
+
+                if (pushOnNormal)
                 {
-                    other.attachedRigidbody.AddForce(contactPoints[0].normal.normalized * pushForce * -1.0f);
+                    ContactPoint2D[] contactPoints = new ContactPoint2D[1];
+                    if (other.GetContacts(contactPoints) > 0)
+                    {
+                        other.attachedRigidbody.AddForce(contactPoints[0].normal.normalized * pushForce * -1.0f);
+                    }
+                }
+                else
+                {
+                    Vector2 forceDirection = other.attachedRigidbody.position - thisCollider.attachedRigidbody.position;
+                    other.attachedRigidbody.AddForce(forceDirection.normalized * pushForce);
                 }
             }
         }

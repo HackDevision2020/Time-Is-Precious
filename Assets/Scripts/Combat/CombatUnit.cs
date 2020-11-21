@@ -19,6 +19,8 @@ namespace Combat
         public HealthChangeEvent onMaxHealthChange;
         public HealthChangeEvent onHealthChange;
         public UnityEvent onDeath;
+        public UnityEvent onAttackStart;
+        public UnityEvent onAttackEnd;
 
         public bool IsDead => isDead;
 
@@ -39,6 +41,16 @@ namespace Combat
             if (onDeath == null)
             {
                 onDeath = new UnityEvent();
+            }
+
+            if (onAttackStart == null)
+            {
+                onAttackStart = new UnityEvent();
+            }
+
+            if (onAttackEnd == null)
+            {
+                onAttackEnd = new UnityEvent();
             }
         }
 
@@ -82,6 +94,16 @@ namespace Combat
             {
                 isInvincible = true;
             }
+        }
+
+        public void StartAttack()
+        {
+            onAttackStart.Invoke();
+        }
+
+        public void EndAttack()
+        {
+            onAttackEnd.Invoke();
         }
     }
 }

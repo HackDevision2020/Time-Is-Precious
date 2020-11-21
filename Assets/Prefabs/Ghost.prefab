@@ -12,7 +12,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -53,9 +53,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  target: {fileID: 0}
   stoppingDistance: 3
-  rbody: {fileID: 1469500202}
   tooFar: 10
+--- !u!114 &7542393325683747515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113827435661087224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39de857411f63749b9e3d9fbb85c320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 500
+  smoothness: 0.1
+  airControlFactor: 1
+  flyOnly: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckPosition: {fileID: 0}
+  groundCheckRadius: 0.1
+  onLanded:
+    m_PersistentCalls:
+      m_Calls: []
+  onOffGround:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8440191574180324758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,9 +118,25 @@ PrefabInstance:
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507373, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: attackDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507373, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: pushOnNormal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507373, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: pushForce
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 8409892826506507374, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
       propertyPath: m_Name
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507374, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8409892826506507376, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -150,6 +193,22 @@ PrefabInstance:
     - target: {fileID: 8409892826506507378, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507378, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.029067993
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507378, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.04440826
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507378, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: m_Size.x
+      value: 0.15577018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409892826506507378, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4286884
       objectReference: {fileID: 0}
     - target: {fileID: 8409892826506507379, guid: 42d44005e96e5814da7749f13bcafa83, type: 3}
       propertyPath: m_Sprite

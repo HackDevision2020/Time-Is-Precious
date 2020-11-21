@@ -15,6 +15,8 @@ namespace Controllers.Movement
         [Range(0.0f, 1.0f)]
         public float airControlFactor = 0.2f;
 
+        public bool flyOnly = false;
+
         [Header("Ground Check")]
         public LayerMask groundLayer;
 
@@ -42,12 +44,17 @@ namespace Controllers.Movement
         private void FixedUpdate()
         {
 #if UNITY_EDITOR // only executed when the game is run in the editor
-            if (groundCheckPosition == null)
+            if (groundCheckPosition == null && !flyOnly)
             {
                 Debug.LogError($"groundCheckPosition not assigned for object \"{gameObject.name}\"");
                 return;
             }
 #endif
+            if (flyOnly)
+            {
+                return;
+            }
+
             bool wasOnGround = isOnGround;
             isOnGround = Physics2D.OverlapCircle(groundCheckPosition.position, groundCheckRadius, groundLayer);
 
@@ -66,20 +73,29 @@ namespace Controllers.Movement
         {
             float targetSideVelocity = movement.x;
             Vector2 rigidBodyVelocity = rigidBody.velocity;
+            Vector3 targetVelocity;
 
-            if (!isOnGround)
+            if (flyOnly)
             {
-                targetSideVelocity = Mathf.Lerp(rigidBodyVelocity.x, targetSideVelocity, airControlFactor);
+                targetVelocity = movement;
+            }
+            else
+            {
+                if (!isOnGround)
+                {
+                    targetSideVelocity = Mathf.Lerp(rigidBodyVelocity.x, targetSideVelocity, airControlFactor);
+                }
+
+                targetVelocity = new Vector2(targetSideVelocity, rigidBodyVelocity.y);
             }
 
-            Vector3 targetVelocity = new Vector2(targetSideVelocity, rigidBodyVelocity.y);
             rigidBody.velocity = Vector3.SmoothDamp(
                 rigidBodyVelocity,
                 targetVelocity,
                 ref acceleration,
                 smoothness);
 
-            if (isOnGround && tryJump)
+            if (!flyOnly && isOnGround && tryJump)
             {
                 isOnGround = false;
                 rigidBody.AddForce(new Vector2(0.0f, jumpForce));

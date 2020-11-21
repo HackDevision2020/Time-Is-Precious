@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DoorItemTrigger : MonoBehaviour
 {
-    [SerializeField] private GameObject door; 
+    [SerializeField] private GameObject door;
+
+    [SerializeField] private GameObject explosion;
     private static DoorItemTrigger _instance;
     public static DoorItemTrigger Instance { get { return _instance; } }
     // Start is called before the first frame update
@@ -36,7 +38,9 @@ public class DoorItemTrigger : MonoBehaviour
     {
         if(totalItems == itemsCollected)
         {
+            GameObject.Instantiate(explosion, this.transform.position, this.transform.rotation);
             Destroy(door);
+            Destroy(this.gameObject);
         }
     }
 }
