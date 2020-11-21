@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 24576
   attackDamage: 0
   pushForce: 1000
 --- !u!1 &8068602840704900799
@@ -323,6 +323,7 @@ MonoBehaviour:
   jumpForce: 700
   smoothness: 0.05
   airControlFactor: 0.441
+  flyOnly: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 1591

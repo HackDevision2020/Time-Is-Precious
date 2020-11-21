@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Controllers.Movement;
 using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(CharacterMovement))]
 public class EnemyFollow1 : MonoBehaviour
 {
     public float speed = 2f;
-    private Transform target;
+    public Rigidbody2D target;
     [SerializeField] float stoppingDistance = 3;
     //[SerializeField] private int enemyHealth = 100;
     private bool isFacingRight = true;
-    [SerializeField] private Rigidbody2D rbody;
+    private Rigidbody2D rbody;
 
     //[SerializeField] GameObject[] deathSplatters;
     //[SerializeField] private GameObject hitEffect;
@@ -21,25 +22,43 @@ public class EnemyFollow1 : MonoBehaviour
    // private float fireCounter;
 
     [SerializeField] public float tooFar = 3;
-    
 
+    private CharacterMovement characterMovement;
     //public Animator anim;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); // target object with "Player" tag
+        characterMovement = GetComponent<CharacterMovement>();
+        rbody = GetComponent<Rigidbody2D>();
     }
 
+    // Start is called before the first frame update
+    // void Start()
+    // {
+        // target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); // target object with "Player" tag
+    // }
+
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, target.position) < tooFar)
+        Vector2 diff = target.position - rbody.position;
+        if (diff.magnitude < tooFar)
         {
-           
+            Vector2 movement = diff.normalized * (speed * Time.fixedDeltaTime);
+            characterMovement.Move(movement, false);
+        }
+
+        if (diff.x > 0.0f && !isFacingRight || diff.x < 0.0f && isFacingRight)
+        {
+            Flip();
+        }
+
+        /*if (Vector3.Distance(transform.position, target.position) < tooFar)
+        {
+
 
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);  // move towards
-          
+
 
             if ((isFacingRight && rbody.velocity.x < 0) || (!isFacingRight && rbody.velocity.x > 0))
              {
@@ -63,7 +82,7 @@ public class EnemyFollow1 : MonoBehaviour
 
 
 
-            /*if (shouldShoot == true && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < tooFar)
+            if (shouldShoot == true && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < tooFar)
             {
                 fireCounter -= Time.deltaTime;
                 if (fireCounter <= 0)
@@ -72,8 +91,8 @@ public class EnemyFollow1 : MonoBehaviour
                     Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
                     AudioManager.instance.Playsfx(1);
                 }
-            }*/
-        }
+            }
+        }*/
 
 
         /*if (transform.position.x > 0)
@@ -90,7 +109,7 @@ public class EnemyFollow1 : MonoBehaviour
     private void Flip()
     {
         //transform.Rotate(0f, 180f, 0f);
-        
+
         Vector3 temp = transform.localScale;
         temp.x *= -1;
         transform.localScale = temp;
