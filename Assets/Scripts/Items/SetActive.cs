@@ -10,8 +10,10 @@ namespace Items
 
         public void OnInteraction()
         {
+            GetComponent<AudioSource>().Play();
             switch (mode)
             {
+
                 case SetActiveMode.Toggle:
                     foreach (GameObject t in target)
                     {
@@ -30,6 +32,7 @@ namespace Items
                     foreach (GameObject t in target)
                     {
                         t.SetActive(false);
+                        
                     }
                     break;
             }
