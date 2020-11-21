@@ -38962,6 +38962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   pushForce: 300
+  pushOnNormal: 1
 --- !u!114 &1982754824
 MonoBehaviour:
   m_ObjectHideFlags: 0

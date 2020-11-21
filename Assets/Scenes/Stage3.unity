@@ -3339,7 +3339,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9578,7 +9578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1469500196, guid: 584d679f998658a41bbaf32d9807d8d5, type: 3}
       propertyPath: speed
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1469500196, guid: 584d679f998658a41bbaf32d9807d8d5, type: 3}
       propertyPath: target
@@ -12757,6 +12757,10 @@ PrefabInstance:
     - target: {fileID: 6699631225331901377, guid: e0c048182b5f0974c9811ad74b56878e, type: 3}
       propertyPath: m_Name
       value: Hazards SawBlade Moving 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699631225331901404, guid: e0c048182b5f0974c9811ad74b56878e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6699631225331901407, guid: e0c048182b5f0974c9811ad74b56878e, type: 3}
       propertyPath: m_LocalPosition.x

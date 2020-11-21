@@ -201,6 +201,7 @@ MonoBehaviour:
   jumpForce: 500
   smoothness: 0.05
   airControlFactor: 0.2
+  flyOnly: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 1591
@@ -227,7 +228,7 @@ MonoBehaviour:
   wayPoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 250
+  speed: 150
   arriveThreshold: 0.05
 --- !u!114 &4576933189999109387
 MonoBehaviour:
@@ -243,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   pushForce: 200
+  pushOnNormal: 1
 --- !u!114 &3820011179257538774
 MonoBehaviour:
   m_ObjectHideFlags: 0
