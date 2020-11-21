@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+[DisallowMultipleComponent]
 public class BeeController : MonoBehaviour
 {
     public AIPath aiPath;

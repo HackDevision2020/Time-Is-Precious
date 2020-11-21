@@ -12071,6 +12071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24e3fbdea5518a46bf39da3bffaa431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  simpleMovement: 1
   speed: 2
   groundDetector: {fileID: 2101003821}
 --- !u!1 &1872794778 stripped

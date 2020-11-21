@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   pushForce: 100
+  pushOnNormal: 1
 --- !u!114 &7609290527854927148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +131,7 @@ GameObject:
   - component: {fileID: 7609290528392500395}
   - component: {fileID: 7609290528392500397}
   - component: {fileID: 7609290528392500394}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: witch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,3 +320,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   pushForce: 100
+  pushOnNormal: 1
