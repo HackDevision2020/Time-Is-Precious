@@ -2653,6 +2653,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8068602841427100240, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
+      propertyPath: onAttackStart.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Controllers.Movement.PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068602841427100240, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
+      propertyPath: onAttackStart.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068602841427100240, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
+      propertyPath: onAttackStart.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8068602841427100242, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: jumpForce
       value: 650

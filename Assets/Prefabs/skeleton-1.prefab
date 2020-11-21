@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &102676639934857046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683220006716267860}
+  m_Layer: 13
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683220006716267860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102676639934857046}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.258, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5238842827983299156}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3151299219730636263
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,10 +43,11 @@ GameObject:
   - component: {fileID: 843686447}
   - component: {fileID: 843686448}
   - component: {fileID: 675787293440493674}
+  - component: {fileID: 4169015007050531920}
   - component: {fileID: 843686446}
   - component: {fileID: 4576933189999109387}
   - component: {fileID: 3820011179257538774}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: skeleton-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +64,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.587, y: -0.657, z: -100}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1683220006716267860}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,6 +186,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35326082, y: 0.42601168}
   m_EdgeRadius: 0
+--- !u!114 &4169015007050531920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151299219730636263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39de857411f63749b9e3d9fbb85c320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 500
+  smoothness: 0.05
+  airControlFactor: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1591
+  groundCheckPosition: {fileID: 1683220006716267860}
+  groundCheckRadius: 0.1
+  onLanded:
+    m_PersistentCalls:
+      m_Calls: []
+  onOffGround:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &843686446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +227,8 @@ MonoBehaviour:
   wayPoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 5
+  speed: 250
+  arriveThreshold: 0.05
 --- !u!114 &4576933189999109387
 MonoBehaviour:
   m_ObjectHideFlags: 0

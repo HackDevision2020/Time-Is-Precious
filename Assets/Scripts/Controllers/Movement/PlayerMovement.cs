@@ -1,4 +1,5 @@
-﻿using Items;
+﻿using Combat;
+using Items;
 using UnityEngine;
 
 namespace Controllers.Movement
@@ -17,6 +18,7 @@ namespace Controllers.Movement
         private bool jumpInput;
 
         private Rigidbody2D rigidBody;
+        private CombatUnit combatUnit;
         private Animator animator;
         private static readonly int animParamSideSpeed = Animator.StringToHash("SideSpeed");
         private static readonly int animParamUpDownSpeed = Animator.StringToHash("UpDownSpeed");
@@ -33,6 +35,7 @@ namespace Controllers.Movement
         {
             characterMovement = GetComponent<CharacterMovement>();
             rigidBody = GetComponent<Rigidbody2D>();
+            combatUnit = GetComponent<CombatUnit>();
             animator = GetComponent<Animator>();
 
 #if UNITY_EDITOR // only executed when the game is run in the editor
@@ -61,6 +64,7 @@ namespace Controllers.Movement
             if (Input.GetButtonDown("Pause"))
             {
                 GameController.Instance.PauseGame(true);
+                return;
             }
 
             sideMovementInput = Input.GetAxisRaw("Horizontal");
@@ -72,9 +76,8 @@ namespace Controllers.Movement
 
             if (!isAttacking && Input.GetButtonDown("Fire1"))
             {
-                characterMovement.PausePhysics();
-                isAttacking = true;
-                animator.SetTrigger(animParamAttack);
+                combatUnit.StartAttack();
+                return;
             }
 
             if (!isAttacking && Input.GetButtonDown("Interact"))
@@ -125,6 +128,13 @@ namespace Controllers.Movement
         public void SetOnGround(bool isOnGround)
         {
             animator.SetBool(animParamOnGround, isOnGround);
+        }
+
+        public void OnAttackStart()
+        {
+            characterMovement.PausePhysics();
+            isAttacking = true;
+            animator.SetTrigger(animParamAttack);
         }
 
         public void OnAttackEnd()
