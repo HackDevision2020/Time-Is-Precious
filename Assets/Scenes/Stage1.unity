@@ -265,14 +265,6 @@ PrefabInstance:
       value: skeleton-1
       objectReference: {fileID: 0}
     - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionExit.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
       propertyPath: onCollisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -284,30 +276,6 @@ PrefabInstance:
       propertyPath: onCollisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 843686445}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 843686452}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Traps.HitOnTouch, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCollision
-      objectReference: {fileID: 0}
-    - target: {fileID: 3820011179257538774, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-      propertyPath: onCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5238842827983299156, guid: 01299f272691432409fae3e50bda7df5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.209
@@ -847,11 +815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.39
+      value: -36.29
       objectReference: {fileID: 0}
     - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.22
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 8068602841427100246, guid: 5ff659b67ffefbd4780bae2c3fe711d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1332,17 +1300,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3151299219730636263, guid: 01299f272691432409fae3e50bda7df5, type: 3}
   m_PrefabInstance: {fileID: 314646227}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &843686452 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4576933189999109387, guid: 01299f272691432409fae3e50bda7df5, type: 3}
-  m_PrefabInstance: {fileID: 314646227}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843686445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91bdd5546c3459785144e0c742e7a00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &844226789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3088687658984900790, guid: 0f4a0895fda3d2c4b8527299f0226267, type: 3}
@@ -38963,6 +38920,7 @@ MonoBehaviour:
   attackDamage: 1
   pushForce: 300
   pushOnNormal: 1
+  reactionEnabled: 1
 --- !u!114 &1982754824
 MonoBehaviour:
   m_ObjectHideFlags: 0
