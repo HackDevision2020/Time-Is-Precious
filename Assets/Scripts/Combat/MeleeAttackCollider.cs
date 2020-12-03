@@ -8,7 +8,7 @@ namespace Combat
         [Tooltip("Layers of things that can be hit")]
         public LayerMask targetLayer;
 
-        public int attackDamage = 0;
+        public int attackDamage = 1;
 
         public float pushForce = 100.0f;
 
@@ -26,10 +26,10 @@ namespace Combat
                 return;
             }
 
-            // TODO implement more sensible reaction to the attack
-            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            CombatUnit combatUnit = other.GetComponent<CombatUnit>();
+            if (combatUnit)
             {
-                Destroy(other.gameObject);
+                combatUnit.TakeDamage(1);
             }
 
             bool isGhost = other.gameObject.layer == LayerMask.NameToLayer("Ghost");

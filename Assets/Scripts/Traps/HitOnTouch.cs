@@ -13,6 +13,13 @@ namespace Traps
         [Tooltip("Whether to push on the contact normal or the position difference; only applicable for triggers")]
         public bool pushOnNormal = true;
 
+        public bool reactionEnabled = true;
+
+        public void SetReactionEnabled(bool shouldBeEnabled)
+        {
+            reactionEnabled = shouldBeEnabled;
+        }
+
         /// <summary>
         /// Use this method for Collision event handlers.
         /// </summary>
@@ -20,7 +27,7 @@ namespace Traps
         /// <param name="other"></param>
         public void OnCollision(Collider2D thisCollider, Collision2D other)
         {
-            if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
+            if (!reactionEnabled || other.gameObject.layer != LayerMask.NameToLayer("Player"))
             {
                 return;
             }
@@ -40,7 +47,7 @@ namespace Traps
         /// <param name="other"></param>
         public void OnTrigger(Collider2D thisCollider, Collider2D other)
         {
-            if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
+            if (!reactionEnabled || other.gameObject.layer != LayerMask.NameToLayer("Player"))
             {
                 return;
             }

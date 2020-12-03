@@ -171,6 +171,7 @@ MonoBehaviour:
   attackDamage: 100
   pushForce: 100
   pushOnNormal: 1
+  reactionEnabled: 1
 --- !u!114 &4180871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,6 +933,7 @@ MonoBehaviour:
   attackDamage: 1
   pushForce: 100
   pushOnNormal: 1
+  reactionEnabled: 1
 --- !u!61 &164017840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23743,6 +23745,7 @@ MonoBehaviour:
   attackDamage: 100
   pushForce: 100
   pushOnNormal: 1
+  reactionEnabled: 1
 --- !u!114 &805207399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47722,7 +47725,10 @@ PrefabInstance:
       propertyPath: totalDuration
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7817665799378685938, guid: 242a12605afa4433487535d283f2ee43, type: 3}
+    - {fileID: 5077755274852948164, guid: 242a12605afa4433487535d283f2ee43, type: 3}
+    - {fileID: 8835531331043730833, guid: 242a12605afa4433487535d283f2ee43, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 242a12605afa4433487535d283f2ee43, type: 3}
 --- !u!4 &2094029252 stripped
 Transform:
@@ -48291,6 +48297,10 @@ PrefabInstance:
     - target: {fileID: 7609290528392500390, guid: 242a12605afa4433487535d283f2ee43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7609290528392500391, guid: 242a12605afa4433487535d283f2ee43, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 242a12605afa4433487535d283f2ee43, type: 3}

@@ -45,8 +45,11 @@ GameObject:
   - component: {fileID: 675787293440493674}
   - component: {fileID: 4169015007050531920}
   - component: {fileID: 843686446}
-  - component: {fileID: 4576933189999109387}
+  - component: {fileID: 5295358120016472381}
+  - component: {fileID: 246976604274215880}
   - component: {fileID: 3820011179257538774}
+  - component: {fileID: 4576933189999109387}
+  - component: {fileID: 8322569429675327467}
   m_Layer: 13
   m_Name: skeleton-1
   m_TagString: Untagged
@@ -230,7 +233,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 150
   arriveThreshold: 0.05
---- !u!114 &4576933189999109387
+--- !u!114 &5295358120016472381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,12 +242,105 @@ MonoBehaviour:
   m_GameObject: {fileID: 3151299219730636263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91bdd5546c3459785144e0c742e7a00, type: 3}
+  m_Script: {fileID: 11500000, guid: 899cb290ea1e95648a8515a81a0b6e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 1
-  pushForce: 200
-  pushOnNormal: 1
+  maxHealth: 1
+  currentHealth: 1
+  isInvincible: 0
+  onMaxHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 246976604274215880}
+        m_TargetAssemblyTypeName: Enemies.EnemyDeath, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 843686447}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 843686446}
+        m_TargetAssemblyTypeName: skeletonManager, Assembly-CSharp
+        m_MethodName: SetPause
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4576933189999109387}
+        m_TargetAssemblyTypeName: Traps.HitOnTouch, Assembly-CSharp
+        m_MethodName: SetReactionEnabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onAttackEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &246976604274215880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151299219730636263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10426a916cfe402eaceb69401c1cda73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerDuration: 0.5
+  flickerNumber: 2
+  minOpacity: 0.2
+  onDeathReactionEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8322569429675327467}
+        m_TargetAssemblyTypeName: Utils.DestroySelf, Assembly-CSharp
+        m_MethodName: DoDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3820011179257538774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,3 +383,31 @@ MonoBehaviour:
   onCollisionStay:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4576933189999109387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151299219730636263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bdd5546c3459785144e0c742e7a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1
+  pushForce: 200
+  pushOnNormal: 1
+  reactionEnabled: 1
+--- !u!114 &8322569429675327467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151299219730636263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce258b7528e74e02b646561edbf4363d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

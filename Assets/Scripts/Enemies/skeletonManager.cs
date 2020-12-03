@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Controllers.Movement;
 using UnityEngine;
 
@@ -13,10 +12,17 @@ public class skeletonManager : MonoBehaviour
     public float speed = 5f;
     public float arriveThreshold = 0.01f;
 
+    private bool paused;
+
     private bool isFacingRight;
     private bool movingRight;
     private CharacterMovement characterMovement;
     private Rigidbody2D rBody;
+
+    public void SetPause(bool shouldPause)
+    {
+        paused = shouldPause;
+    }
 
     private void Awake()
     {
@@ -34,6 +40,11 @@ public class skeletonManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (paused)
+        {
+            return;
+        }
+
         float movement = speed * Time.fixedDeltaTime;
 
         if (Mathf.Abs(rBody.position.x - wayPoints[currentTargetIndex].position.x) < arriveThreshold)
