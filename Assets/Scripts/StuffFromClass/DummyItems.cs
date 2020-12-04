@@ -10,6 +10,7 @@ public class DummyItems : MonoBehaviour
         //referenc to levelController
         if (other.CompareTag("Player"))
         {
+            Counter.count++;
             //play pickup animation
             GameObject.Instantiate(itemFeedback, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
