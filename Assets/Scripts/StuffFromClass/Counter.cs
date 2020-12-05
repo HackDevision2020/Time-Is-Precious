@@ -10,8 +10,13 @@ public class Counter : MonoBehaviour
     public GameObject ghost;
     public GameObject effect;
 
-
+    void Start()
+    {
+        count = 0;
+    }
     // Update is called once per frame
+
+
     void Update()
     {
         if (count == limit)

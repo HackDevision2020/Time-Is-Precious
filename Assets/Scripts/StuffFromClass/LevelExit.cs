@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
     [SerializeField] private GameObject toBeActivated;
+    public GameObject deactivate;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,8 @@ public class LevelExit : MonoBehaviour
         if(other.tag == "Player")
         {
             toBeActivated.SetActive(true);
+            deactivate.SetActive(false);
+
 
         }
     }
