@@ -2,6 +2,10 @@
 
 ## Contribution Guide
 
+Play Here: https://simmer.io/@nathan_9_9/time-is-precious
+
+## Contribution Guide
+
 **Don't forget to create a new branch based on the master branch when working on a new feature!!**
 
 ### Step by Step
